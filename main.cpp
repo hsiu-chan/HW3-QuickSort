@@ -19,7 +19,8 @@ public:
                     if(_arr+i==rPtr){
                         std::cout<<'r';
                     }
-                    std::cout<<*(_arr+i)<<',';
+                    std::cout<<*(_arr+i);
+                    if((i+1)!=_arrSize){std::cout<<",";}
                 }
                 std::cout<<"\n";
     };
@@ -105,10 +106,9 @@ void QuickSort::swap(int* x, int* y){
     /*Print*/
     std::cout<<"SWAP:";
     for (int i=0;i<_arrSize;i++){
-            if(_arr+i==x ^ _arr+i==y){
-                std::cout<<'*';
-            }
-            std::cout<<*(_arr+i)<<',';
+            if(_arr+i==x ^ _arr+i==y){std::cout<<'*';}
+            std::cout<<*(_arr+i);
+            if((i+1)!=_arrSize){std::cout<<",";}
 
         }
     std::cout<<"\n";
@@ -117,12 +117,12 @@ void QuickSort::swap(int* x, int* y){
 
 
 int main(){
-    const int arrSize=9;
-    int arr[arrSize]={10,2,3,6,5,2,1,9,7};
+    const int arrSize=10;
+    int arr[arrSize]={33, 67, 8, 13, 54, 119, 3, 84, 25, 41};
     QuickSort A(arr,arrSize);
     A.sort();
     for (auto i:arr){
-        std::cout<<i<<",";
+        std::cout<<i<<" ";
     }
     //cout<<((arr+1)<(arr+2));
 
