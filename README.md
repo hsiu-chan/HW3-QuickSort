@@ -1,4 +1,5 @@
 # HW3-QuickSort
+## Code
 ```c++
 #include<iostream>
 #include <stack>
@@ -118,7 +119,7 @@ void QuickSort::swap(int* x, int* y){//交換兩位置
 
 int main(){
     const int arrSize=10;
-    int arr[arrSize]={33, 67, 8, 13, 54, 119, 3, 84, 25, 41};
+    int arr[arrSize]={33, 67, 8, 13, 54, 119, 3, 84, 25, 41};//輸入
     QuickSort(arr,arrSize).sort();
     std::cout<<"RESULT:";
     for (auto i:arr){
@@ -130,6 +131,8 @@ int main(){
 }
 
 ```
+
+## Result
 
 ```
 NOW:l*33,67,8,13,54,119,3,84,25,r*41
