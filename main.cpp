@@ -14,10 +14,10 @@ public:
     void printArr(int* lPtr,int*rPtr){//print array
         for (int i=0;i<_arrSize;i++){
                     if(_arr+i==lPtr){
-                        std::cout<<'l';
+                        std::cout<<"l*";
                     }
                     if(_arr+i==rPtr){
-                        std::cout<<'r';
+                        std::cout<<"r*";
                     }
                     std::cout<<*(_arr+i);
                     if((i+1)!=_arrSize){std::cout<<",";}
@@ -25,7 +25,7 @@ public:
                 std::cout<<"\n";
     };
     void sort();
-    void swap(int*, int*);
+    void swap(int*, int*);//交換
 };
 
 
@@ -52,7 +52,7 @@ void QuickSort::sort(){
 
         /*print*/
         std::cout<<"NOW:";
-        printArr(lPtr,rPtr);
+        printArr(lNow.top(),rNow.top());
 
         //維護 lPtr 左邊小於等於pivot，維護 rPtr 右邊大於等於pivot
         while (true)
@@ -80,10 +80,8 @@ void QuickSort::sort(){
         }
         std::cout<<"FINISH:"<<*(lNow.top())<<","<<*(rNow.top())<<'\n';
 
-        
 
-
-
+        /*Pop 當前區間，push 子代到 Now*/
         /* lNow:[l0] rNow:[r0]  --> lNow:[l0], rNow:[] */
         int* rTmp=rNow.top();
         rNow.pop();
@@ -98,7 +96,7 @@ void QuickSort::sort(){
 }
 
 
-void QuickSort::swap(int* x, int* y){
+void QuickSort::swap(int* x, int* y){//交換兩位置
     int cach=*x;
     *x=*y;
     *y=cach;
@@ -119,8 +117,8 @@ void QuickSort::swap(int* x, int* y){
 int main(){
     const int arrSize=10;
     int arr[arrSize]={33, 67, 8, 13, 54, 119, 3, 84, 25, 41};
-    QuickSort A(arr,arrSize);
-    A.sort();
+    QuickSort(arr,arrSize).sort();
+    std::cout<<"RESULT:";
     for (auto i:arr){
         std::cout<<i<<" ";
     }
